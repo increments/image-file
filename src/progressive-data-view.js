@@ -1,12 +1,17 @@
 export default class ProgressiveDataView {
   constructor(...args) {
     this.dataView = new DataView(...args)
+    this.buffer = this.dataView.buffer
     this.position = 0
   }
 
   advance(length) {
     this.position += length
     return length
+  }
+
+  rewind() {
+    this.position = 0
   }
 
   getBytes(offset, length) {
