@@ -1,10 +1,14 @@
 {
   "name": "image-file",
   "version": "1.0.0",
-  "description": "",
+  "description": "A image metadata parser that can be run on both Node.js and browsers",
+  "files": [
+    "lib"
+  ],
   "main": "lib/image-file.js",
   "scripts": {
     "compile": "gulp compile",
+    "prepublish": "npm run compile",
     "test": "gulp test",
     "watch": "gulp watch"
   },
