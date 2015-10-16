@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {arrayBufferFromFile} from './test-helper'
+import {arrayBufferFromFixture} from './test-helper'
 import ImageFile from '../src/image-file'
 
 describe('ImageFile', () => {
@@ -18,7 +18,7 @@ describe('ImageFile', () => {
   describe('#isPNG()', () => {
     context('with a PNG file', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.png')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
       })
 
       it('returns true', () => {
@@ -28,7 +28,7 @@ describe('ImageFile', () => {
 
     context('with a JPEG file', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.jpg')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.jpg')
       })
 
       it('returns false', () => {
@@ -40,7 +40,7 @@ describe('ImageFile', () => {
   describe('#isJPEG()', () => {
     context('with a JPEG file', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.jpg')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.jpg')
       })
 
       it('returns true', () => {
@@ -50,7 +50,7 @@ describe('ImageFile', () => {
 
     context('with a PNG file', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.png')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
       })
 
       it('returns false', () => {
@@ -62,7 +62,7 @@ describe('ImageFile', () => {
   describe('#width', () => {
     context('with 240 x 88 PNG image', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.png')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
       })
 
       it('returns 240', () => {
@@ -72,7 +72,7 @@ describe('ImageFile', () => {
 
     context('with 240 x 88 JPEG file', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.jpg')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.jpg')
       })
 
       it('returns 240', () => {
@@ -84,7 +84,7 @@ describe('ImageFile', () => {
   describe('#height', () => {
     context('with 240 x 88 PNG image', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.png')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
       })
 
       it('returns 88', () => {
@@ -94,7 +94,7 @@ describe('ImageFile', () => {
 
     context('with 240 x 88 JPEG file', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.jpg')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.jpg')
       })
 
       it('returns 240', () => {
@@ -106,7 +106,7 @@ describe('ImageFile', () => {
   describe('#ppi', () => {
     context('with a non-Retina PNG image', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/non-retina_1024x768.png')
+        arrayBuffer = arrayBufferFromFixture('non-retina_1024x768.png')
       })
 
       it('is undefined', () => {
@@ -116,7 +116,7 @@ describe('ImageFile', () => {
 
     context('with a 2x Retina PNG image', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.png')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
       })
 
       it('returns 144', () => {
@@ -126,7 +126,7 @@ describe('ImageFile', () => {
 
     context('with a 2x Retina JPEG image', () => {
       before(() => {
-        arrayBuffer = arrayBufferFromFile('test/fixtures/retina_240x88.jpg')
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.jpg')
       })
 
       it('returns 144', () => {

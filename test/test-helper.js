@@ -1,7 +1,7 @@
-import fs from 'fs'
+import fixtures from './fixtures'
 
-export function arrayBufferFromFile(filePath) {
-  let buffer = fs.readFileSync(filePath)
-  let uint8Array = new Uint8Array(buffer)
+export function arrayBufferFromFixture(fixtureName) {
+  let fixture = fixtures[fixtureName]
+  let uint8Array = new Uint8Array(fixture.data)
   return uint8Array.buffer
 }
