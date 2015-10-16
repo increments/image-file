@@ -22,6 +22,10 @@ console.log(image)
 // }
 ```
 
+If you use `image-file` in browser environment with Browserify or something,
+you need to add `babel` to your application dependencies
+and `require('babel/polyfill')` before `require`ing `image-file`.
+
 ## Development
 
 Run `npm run` for the available development tasks.
