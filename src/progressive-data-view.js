@@ -1,6 +1,14 @@
 export default class ProgressiveDataView {
-  constructor(...args) {
-    this.dataView = new DataView(...args)
+  constructor(arrayBuffer, byteOffset = undefined, byteLength = undefined) {
+    // `new DataView(...args)` does not work on Safari 9.0...
+    if (byteOffset === undefined) {
+      this.dataView = new DataView(arrayBuffer)
+    } else if (byteLength === undefined) {
+      this.dataView = new DataView(arrayBuffer, byteLength)
+    } else {
+      this.dataView = new DataView(arrayBuffer, byteOffset, byteLength)
+    }
+
     this.buffer = this.dataView.buffer
     this.position = 0
   }
