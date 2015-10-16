@@ -20,6 +20,8 @@ export default class ImageFile {
     }
 
     Object.assign(this, metadata)
+
+    this.data.rewind()
   }
 
   isPNG() {
