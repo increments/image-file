@@ -65,4 +65,16 @@ export default class PNGParser {
       this.metadata.ppi = Math.round(pixelPerMetre * INCH_TO_METRE_RATIO)
     }
   }
+
+  oniTXt(chunk){
+    // http://www.w3.org/TR/2003/REC-PNG-20031110/#11iTXt
+    let textualData = {}
+    textualData.keyword = chunk.data.getNextString().replace('\0', '')
+    textualData.isCompressed = (chunk.data.getNextUint(1) === 1)
+    textualData.compressionMethod = chunk.data.getNextUint(1)
+    textualData.languageTag = chunk.data.getNextString().replace('\0', '')
+    textualData.translatedKeyword = chunk.data.getNextString().replace('\0', '')
+    textualData.text = chunk.data.getNextString()
+    this.metadata.internationalTextualData = textualData
+  }
 }

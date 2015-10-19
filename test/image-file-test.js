@@ -134,4 +134,26 @@ describe('ImageFile', () => {
       })
     })
   })
+
+  describe('#internationalTextualData', () => {
+    context('with a PNG image with iTXt chunk', () => {
+      before(() => {
+        arrayBuffer = arrayBufferFromFixture('retina_640x1136_iphone.png')
+      })
+
+      it('returns the parsed metadata', () => {
+        expect(imageFile.internationalTextualData.text).to.include('<exif:UserComment>Screenshot</exif:UserComment>')
+      })
+    })
+
+    context('with a PNG image without iTXt chunk', () => {
+      before(() => {
+        arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
+      })
+
+      it('is undefined', () => {
+        expect(imageFile.internationalTextualData).to.be.undefined
+      })
+    })
+  })
 })

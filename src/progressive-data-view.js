@@ -37,19 +37,25 @@ export default class ProgressiveDataView {
     return this.getBytes(this.position, this.advance(length))
   }
 
-  getString(offset, length) {
+  getString(offset, length = Infinity) {
     let characters = []
 
     for (let i = 0; i < length; i++) {
       let uint = this.getUint(offset + i, 1)
       characters.push(String.fromCharCode(uint))
+
+      if ((offset + i === this.dataView.byteLength - 1) || (length === Infinity && uint === 0)) {
+        break;
+      }
     }
 
     return characters.join('')
   }
 
-  getNextString(length) {
-    return this.getString(this.position, this.advance(length))
+  getNextString(length = Infinity) {
+    let string = this.getString(this.position, length)
+    this.advance(string.length)
+    return string
   }
 
   getUint(offset, length) {
