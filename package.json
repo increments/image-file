@@ -1,6 +1,6 @@
 {
   "name": "image-file",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A image metadata parser that can be run on both Node.js and browsers",
   "files": [
     "lib"
