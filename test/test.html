@@ -7,10 +7,10 @@
 <body>
   <div id="mocha"></div>
 
-  <!-- Load Mocha first, because Mocha is nore `require`ed from test suite so it's not included in test-bundle.js. -->
+  <!-- Load Mocha first, because Mocha is not `require`ed in our test suite so it's not included in test-bundle.js. -->
   <script src="../node_modules/mocha/mocha.js"></script>
 
-  <!-- Enable DSL like #describe before loading our test suite since it's dynamically defined for each test type. -->
+  <!-- Enable DSL such as #describe before loading our test suite since it's dynamically defined for each test type. -->
   <script>mocha.setup('bdd')</script>
 
   <!-- Load our test suite together with library code. -->
