@@ -11,6 +11,7 @@ export default class ProgressiveDataView {
 
     this.buffer = this.dataView.buffer
     this.position = 0
+    this.byteLength = this.dataView.byteLength
   }
 
   advance(length) {

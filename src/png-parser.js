@@ -4,7 +4,11 @@ const INCH_TO_METRE_RATIO = 0.0254
 export default class PNGParser {
   static isPNG(progressiveDataView) {
     // http://www.w3.org/TR/2003/REC-PNG-20031110/#5PNG-file-signature
-    return progressiveDataView.getBytes(0, PNG_SIGNATURE.length).join() === PNG_SIGNATURE.join()
+    if (progressiveDataView.byteLength >= PNG_SIGNATURE.length) {
+      return progressiveDataView.getBytes(0, PNG_SIGNATURE.length).join() === PNG_SIGNATURE.join()
+    } else {
+      return false
+    }
   }
 
   static parse(progressiveDataView) {

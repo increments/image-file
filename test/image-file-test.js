@@ -35,6 +35,16 @@ describe('ImageFile', () => {
         expect(imageFile.isPNG()).to.be.false
       })
     })
+
+    context('with an empty file', () => {
+      before(() => {
+        arrayBuffer = new ArrayBuffer(0)
+      })
+
+      it('returns false', () => {
+        expect(imageFile.isPNG()).to.be.false
+      })
+    })
   })
 
   describe('#isJPEG()', () => {
@@ -51,6 +61,16 @@ describe('ImageFile', () => {
     context('with a PNG file', () => {
       before(() => {
         arrayBuffer = arrayBufferFromFixture('retina_240x88.png')
+      })
+
+      it('returns false', () => {
+        expect(imageFile.isJPEG()).to.be.false
+      })
+    })
+
+    context('with an empty file', () => {
+      before(() => {
+        arrayBuffer = new ArrayBuffer(0)
       })
 
       it('returns false', () => {
